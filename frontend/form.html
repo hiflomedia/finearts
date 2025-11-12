@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEECKA CIS Arts Fest 2025-26 Registration</title>
+    <style>
+        /* Basic CSS (same as before) */
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px 40px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.15); }
+        h1 { color: #007BFF; text-align: center; }
+        h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 25px; }
+        .section-header { background-color: #e6f7ff; padding: 10px; margin-top: 20px; margin-bottom: 15px; border-radius: 4px; border-left: 5px solid #007BFF; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        input[type="text"], input[type="email"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 10px;
+            border: 1px dashed #ddd;
+            margin-bottom: 20px;
+        }
+        .checkbox-group label {
+            font-weight: normal; 
+            display: flex; 
+            align-items: center;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        .checkbox-group input[type="checkbox"] { margin-right: 8px; width: auto; }
+        .note { font-size: 0.9em; color: #999; margin-bottom: 20px; border-left: 3px solid #f0ad4e; padding-left: 10px;}
+        .warning-message { 
+            color: red; 
+            font-weight: bold; 
+            text-align: center;
+            padding: 10px;
+            background-color: #ffeaea;
+            border: 1px solid red;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none; /* Initially hidden */
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover { background-color: #1e7e34; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 PEECKA CIS Arts Fest 2025-26 Registration</h1>
+        <p class="note">
+            ⚠️ **RULES:** You can select a **maximum of 10 events total** (combined On-Stage and Off-Stage), and a **maximum of 6 Off-Stage** events.
+        </p>
+
+        <form action="/submit_registration" method="POST" id="registrationForm">
+            
+            <div class="section-header"><h2>👤 Personal Details (Required)</h2></div>
+            
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="admissionNumber">Admission Number:</label>
+            <input type="text" id="admissionNumber" name="admissionNumber" required>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" placeholder="e.g., BA English - II Year" required>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="text" id="contactNumber" name="contactNumber" required>
+
+            <label for="emailId">Email ID:</label>
+            <input type="email" id="emailId" name="emailId" required>
+
+            <div id="limitWarning" class="warning-message"></div>
+
+            
+            <div class="section-header"><h2>🎨 Event Selection - Off-Stage</h2></div>
+            <p class="note" id="statusOffStage">Maximum 6 Off-Stage events allowed.</p>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Essay Writing (Malayalam)"> Essay Writing (Malayalam)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Essay Writing (English)"> Essay Writing (English)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Essay Writing (Hindi)"> Essay Writing (Hindi)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Essay Writing (Arabic)"> Essay Writing (Arabic)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Essay Writing (Urdu)"> Essay Writing (Urdu)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Essay Writing (Sanskrit)"> Essay Writing (Sanskrit)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Essay Writing (Tamil)"> Essay Writing (Tamil)</label>
+                
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Story Writing (Malayalam)"> Story Writing (Malayalam)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Story Writing (English)"> Story Writing (English)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Story Writing (Hindi)"> Story Writing (Hindi)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Story Writing (Arabic)"> Story Writing (Arabic)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Story Writing (Urdu)"> Story Writing (Urdu)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Story Writing (Sanskrit)"> Story Writing (Sanskrit)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Story Writing (Tamil)"> Story Writing (Tamil)</label>
+                 
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Versification (Malayalam)"> Versification (Malayalam)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Versification (English)"> Versification (English)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Versification (Hindi)"> Versification (Hindi)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Versification (Arabic)"> Versification (Arabic)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Versification (Urdu)"> Versification (Urdu)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Versification (Sanskrit)"> Versification (Sanskrit)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Versification (Tamil)"> Versification (Tamil)</label>
+                 
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Elocution (Malayalam)"> Elocution (Malayalam)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Elocution (English)"> Elocution (English)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Elocution (Hindi)"> Elocution (Hindi)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Elocution (Arabic)"> Elocution (Arabic)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Elocution (Urdu)"> Elocution (Urdu)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Elocution (Sanskrit)"> Elocution (Sanskrit)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Elocution (Tamil)"> Elocution (Tamil)</label>
+                
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Poetry Writing"> Poetry Writing</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Poster Making"> Poster Making</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Painting (Water Colour)"> Painting (Water Colour)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Painting (Oil Colour)"> Painting (Oil Colour)</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Cartoons Drawing"> Cartoons Drawing</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Pencil Drawing"> Pencil Drawing</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Clay Modelling"> Clay Modelling</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Collage"> Collage</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Embroidery"> Embroidery</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Debate"> Debate</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Spot Photography"> Spot Photography</label>
+                <label><input type="checkbox" name="offStageEvents" class="event-checkbox" value="Kavyakeli"> Kavyakeli</label>
+                <label><input type="checkbox" name="offStageEvents" value="Prashnottakam"> Prashnottakam</label>
+                <label><input type="checkbox" name="offStageEvents" value="Rangoli"> Rangoli</label>
+            </div>
+
+            
+            <div class="section-header"><h2>🎤 Event Selection - On-Stage</h2></div>
+            <p class="note" id="statusOnStage">Select your On-Stage Events.</p>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Light Music (Individual)"> Light Music (Individual)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Classical Music (Individual)"> Classical Music (Individual)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Mappilappattu (Group)"> Mappilappattu (Group)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Mappilappattu (Individual)"> Mappilappattu (Individual)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Folk Song (Group)"> Folk Song (Group)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Folk Song (Individual)"> Folk Song (Individual)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Patriotic Song (Group)"> Patriotic Song (Group)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Instrumental Music (Guitar, Violin, Veena, etc.)"> Instrumental Music</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Duet Song (Indian)"> Duet Song (Indian)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Group Song (Western)"> Group Song (Western)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Drama (Malayalam)"> Drama (Malayalam)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Drama (English)"> Drama (English)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Drama (Hindi)"> Drama (Hindi)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Drama (Sanskrit)"> Drama (Sanskrit)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Mime"> Mime</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Mono Act"> Mono Act</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Kathakali"> Kathakali</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Bharathanatyam"> Bharathanatyam</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Mohiniyattam"> Mohiniyattam</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Kuchipudi"> Kuchipudi</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Thiruvathirakali"> Thiruvathirakali</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Margamkali"> Margamkali</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Folk Dance (Female)"> Folk Dance (Female)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Folk Dance (Male)"> Folk Dance (Male)</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Oppana"> Oppana</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Kolakali"> Kolakali</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Daffmuttu"> Daffmuttu</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Arabanamuttu"> Arabanamuttu</label>
+                <label><input type="checkbox" name="onStageEvents" value="Vattappattu"> Vattappattu</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Parichamuttukali"> Parichamuttukali</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Panchavadyam"> Panchavadyam</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Chendamelam"> Chendamelam</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Vanchippattu"> Vanchippattu</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Nadanpattu"> Nadanpattu</label>
+                <label><input type="checkbox" name="onStageEvents" class="event-checkbox" value="Poorakkali"> Poorakkali</label>
+            </div>
+
+
+            <div class="section-header"><h2>✅ Declaration (Required)</h2></div>
+            <label style="font-weight: normal; display: flex; align-items: flex-start; margin-bottom: 20px;">
+                <input type="checkbox" name="declaration" value="true" required style="width: auto; margin-top: 4px;">
+                I hereby declare that I have read and understood the rules. I will not exceed **10 total events** and only **6 Off-Stage items**.
+            </label>
+            
+            <label for="signature">Signature (Type your full name):</label>
+            <input type="text" id="signature" name="signature" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="submit">SUBMIT REGISTRATION</button>
+        </form>
+    </div>
+
+    <script>
+        const MAX_TOTAL = 10;
+        const MAX_OFFSTAGE = 6;
+        
+        // Selectors
+        const registrationForm = document.getElementById('registrationForm');
+        const allCheckboxes = document.querySelectorAll('.event-checkbox');
+        const offStageCheckboxes = document.querySelectorAll('input[name="offStageEvents"]');
+        
+        const statusOffStage = document.getElementById('statusOffStage');
+        const statusOnStage = document.getElementById('statusOnStage');
+        const limitWarning = document.getElementById('limitWarning');
+
+        function enforceDualLimits() {
+            const checkedTotal = document.querySelectorAll('.event-checkbox:checked').length;
+            const checkedOffStage = document.querySelectorAll('input[name="offStageEvents"]:checked').length;
+            const checkedOnStage = checkedTotal - checkedOffStage;
+            const remainingTotal = MAX_TOTAL - checkedTotal;
+            const remainingOffStage = MAX_OFFSTAGE - checkedOffStage;
+
+            // --- 1. Update Status Messages ---
+            statusOffStage.innerHTML = `Selected: **${checkedOffStage}** / **${MAX_OFFSTAGE}** Off-Stage allowed.`;
+            statusOnStage.innerHTML = `Selected: **${checkedOnStage}** On-Stage events. Total slots remaining: **${remainingTotal}**.`;
+            
+            // --- 2. Start by enabling all boxes and hiding warnings ---
+            allCheckboxes.forEach(checkbox => {
+                checkbox.disabled = false;
+            });
+            limitWarning.style.display = 'none';
+            statusOffStage.style.color = '#555'; // Reset Off-Stage color
+
+            // --- 3. GLOBAL LOCKOUT: Check Total Limit (10) ---
+            if (checkedTotal >= MAX_TOTAL) {
+                limitWarning.style.display = 'block';
+                limitWarning.innerHTML = "❌ **You already chose 10 events (Maximum Limit Reached).** Uncheck an event to select a new one.";
+                
+                // Disable ALL unchecked boxes
+                allCheckboxes.forEach(checkbox => {
+                    if (!checkbox.checked) {
+                        checkbox.disabled = true;
+                    }
+                });
+            }
+
+            // --- 4. SUB-LIMIT LOCKOUT: Check Off-Stage Limit (6) ---
+            if (checkedOffStage >= MAX_OFFSTAGE) {
+                // Check if the total limit is NOT already enforced
+                if (checkedTotal < MAX_TOTAL) {
+                    // Disable only the *unchecked* Off-Stage boxes
+                    offStageCheckboxes.forEach(checkbox => {
+                        if (!checkbox.checked) {
+                             checkbox.disabled = true;
+                        }
+                    });
+                }
+                statusOffStage.style.color = '#dc3545'; // Red
+            }
+        }
+
+        // Attach the enforcement function to every checkbox click
+        allCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function(event) {
+                const target = event.target;
+                
+                // CRITICAL FIX: Intercept selection attempt when limits are hit
+                const currentCheckedTotal = document.querySelectorAll('.event-checkbox:checked').length;
+                const currentCheckedOffStage = document.querySelectorAll('input[name="offStageEvents"]:checked').length;
+
+                // Scenario A: User tries to select the 11th item
+                if (target.checked && currentCheckedTotal > MAX_TOTAL) {
+                    target.checked = false; // Immediately revert selection
+                    limitWarning.style.display = 'block';
+                    limitWarning.innerHTML = "❌ **You already chose 10 events (Maximum Limit Reached).** Uncheck an event to select a new one.";
+                } 
+                // Scenario B: User tries to select the 7th Off-Stage item
+                else if (target.checked && target.name === 'offStageEvents' && currentCheckedOffStage > MAX_OFFSTAGE) {
+                    target.checked = false; // Immediately revert selection
+                    limitWarning.style.display = 'block';
+                    limitWarning.innerHTML = "❌ **Off-Stage Limit Reached.** You cannot select more than 6 Off-Stage events.";
+                }
+
+                // Run the main function to update status and apply visual disabling
+                enforceDualLimits();
+            });
+        });
+
+        // --- Intercept form submission for a final check (safety net) ---
+        registrationForm.addEventListener('submit', function(event) {
+            const finalCheckedTotal = document.querySelectorAll('.event-checkbox:checked').length;
+            const finalCheckedOffStage = document.querySelectorAll('input[name="offStageEvents"]:checked').length;
+
+            if (finalCheckedTotal > MAX_TOTAL || finalCheckedOffStage > MAX_OFFSTAGE) {
+                event.preventDefault(); // STOP the submission
+                limitWarning.style.display = 'block';
+                limitWarning.innerHTML = "🛑 **ERROR:** You have selected too many events. Please unselect some events to proceed.";
+                window.scrollTo(0, 0); 
+            }
+        });
+
+
+        // Run once on load to initialize status
+        enforceDualLimits();
+    </script>
+    ```
+
+---
+
+## 2. 🚀 Key Improvements
+
+The fix is primarily within the `change` event listener:
+
+1.  **Immediate Reversion:** I added a safety check right at the beginning of the listener to immediately set the `target.checked = false` if the click would push the count over the limit (either total or Off-Stage). This is the fastest way to stop the selection.
+
+2.  **Unified Enforcement Call:** After the immediate reversion check, the code calls `enforceDualLimits()`. This function now executes the following steps **every time a checkbox changes state**:
+    * **Enables All** (to start clean).
+    * **Checks Total Limit (10)**, and if hit, disables **ALL unchecked items** (including Vattappattu and all others).
+    * **Checks Off-Stage Limit (6)**, and if hit, disables only the **unchecked Off-Stage items** (as long as the total limit hasn't already locked everything).
+
+This structure ensures that the total limit lockout (which disables everything) is always run correctly, preventing Vattappattu or any other unchecked event from being selectable if the 10-event max has already been reached.
+    </body>
+</html>
